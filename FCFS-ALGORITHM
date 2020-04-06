@@ -1,0 +1,61 @@
+#this code is in python3
+#here we are given the arrival time and burst time ,but we also also code a user input AT  and BT
+
+
+def findavg(x):
+  
+  avg=sum(x)/(len(process))
+  print(avg)
+
+
+
+process=[1,2,3]
+
+at=[0,7,4]
+bt=[10,5,8]
+for i in range(0,len(at)-1):  
+ for j in range(0,len(at)-i-1):
+  if(at[j]>at[j+1]):
+   temp=at[j]
+   at[j]=at[j+1]
+   at[j+1]=temp
+   temp=process[j]
+   process[j]=process[j+1]
+   process[j+1]=temp
+   temp=bt[j]
+   bt[j]=bt[j+1]
+   bt[j+1]=temp
+gantchartt=[]
+ct=[]
+wt=[]
+tat=[]
+x=0
+for i in range(0,len(process)):
+  avtime.sort()
+  gantchartt.append(i)
+  x=x+bt[i]
+  ct.append(x)
+  y=ct[i]-at[i]
+  tat.append(y)
+  z=tat[i]-bt[i]
+  wt.append(z)
+print(" " + "process" + "\t" + "arrival time" + "\t " + "burst time" + "\t" + "completion time" + "\t  "+ "waitng time"+"\t  "+"turn around time")
+for i in range(0,len(process)):
+ 
+  print(" " + str(process[i]) + "\t\t\t" + str(at[i]) +"\t\t" + str(bt[i]) + "\t\t " + str(ct[i]) + "\t\t " + str(wt[i])+"\t\t"+str(tat[i]))  
+print("average waitime is ",end=" ")
+findavg(wt)
+print("average turn around time is ",end=" ")
+findavg(tat)
+
+#-----------------------------------------------------------------------------------------------------------------------------------
+output:
+process	arrival time	 burst time	    completion time	  waitng time	  turn around time
+ 1		    	0		            10		          10		             0		          10
+ 3			    4		            8		            18		             6		          14
+ 2			    7		            5		            23		             11		          16
+average waitime is  5.666666666666667
+average turn around time is  13.333333333333334
+
+
+
